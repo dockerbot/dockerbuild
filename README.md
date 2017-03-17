@@ -1,28 +1,61 @@
-## Pour obtenir Docker sur un ordinateur avec Ubuntu
----
-### Installation
+## Pour crée une page web dans Docker avec Apache et mySQL
+### Téléchargement
 
-Pour installer Docker, tape le code suivant:
-```
-$ sudo apt-get install docker-engine
-```
+Télécharge le contenu du projet avec les trois documents:
 
----
-### La permission
+ * _apache-config.conf_	
+ * _Dockerfile_
+ * _README.md_
 
-Tu dois avoir la permission pour accéder à Docker.
+Pour vérifier le téléchargement, tape:
 ```
-$ sudo usermod -aG docker $USER
+$ cd apachebuild
+$ ls
 ```
 
-Maintenant, tu peux utiliser Docker sans devoir taper "sudo".
+Tu dois voir le trois documents listé ci-dessus.
 
 ---
-### Hello World!
+### Installation	
 
-Pour vérifier que tu as installé Docker avec succès, lance le image nommé "hello-world".
+Crée le directory nommé "www".
 ```
-$ docker run hello-world
+$ mkdir www
+$ cd www
 ```
 
-Tu dois voir un message de Docker qui t'accueille.
+Avec "nano", crée un document nommé "index.php".
+```
+$ nano index.php
+```
+
+Tu vas copier et coller tous ton php code dans ce document.
+
+Encore, vérifie le contents de "apachebuild".
+Tu dois voir:
+
+ * _apache-config.conf_
+ * _Dockerfile_
+ * _README.md_
+ * _**www**_
+
+---
+### Lancement
+
+Construis la page.
+```
+$ docker build -t IMAGE_NOM .
+```
+
+Exécute la page et l'assigne à un port.
+```
+$ docker run -d -p NOMBRE_DU_PORT:80 IMAGE_NOM
+```
+
+Recherche "localport:NOMBRE\_DU\_PORT" sur un navigateur pour voir la page web.
+
+Pour effacer, arrête la container de l'image:
+``` 
+$ docker stop CONTAINER_ID
+```
+---
