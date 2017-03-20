@@ -15,7 +15,12 @@ $ ls
 Tu dois voir le deux documents listé ci-dessus.
 
 ---
-### Docker Compose
+### Wordpress et Docker Compose
+
+Tire l'image de WordPress.
+```
+docker pull wordpress
+```
 
 Installe ```docker-compose``` dans le directory.
 
@@ -50,7 +55,7 @@ $ nano docker-compose.yml
 ---
 ### Lancement
 
-Cree et lance l'image du WordPress en utilisant ce code:
+Cree et lance l'image de WordPress en utilisant ce code:
 
 ```
 $ docker run --name wordpressdb -e password=password -e wordpress=wordpress -d mysql:latest
