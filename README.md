@@ -1,28 +1,42 @@
-## Pour obtenir Docker sur un ordinateur avec Ubuntu
+## Pour utiliser Wordpress avec Docker
 ---
-### Installation
+### Docker Compose
 
-Pour installer Docker, tape le code suivant:
+Installe ```docker-compose``` sur ton directory.
+
 ```
-$ sudo apt-get install docker-engine
+$ sudo apt install docker-compose
+```
+
+Vérifie que ```docker-compose``` est dans sa version la plus récente.
+
+```
+$ sudo apt-get upgrade docker-engine
+```
+
+Télécharge le ```docker-compose``` document du projet:
+
+ * _docker-compose.yml_
+
+Si nécessaire, tu peux éditer ce document avec 'nano'.
+
+```
+$ nano docker-compose.yml
 ```
 
 ---
-### La permission
+### Lancement
 
-Tu dois avoir la permission pour accéder à Docker.
+Cree et lance l'image du WordPress en utilisant ce code:
+
 ```
-$ sudo usermod -aG docker $USER
+$ docker run --name wordpressdb -e password=password -e wordpress=wordpress -d mysql:latest
 ```
 
-Maintenant, tu peux utiliser Docker sans devoir taper "sudo".
+Finalment, lance le ```docker-compose``` fichier.
 
+```
+$ docker-compose up -d
+```
 ---
-### Hello World!
 
-Pour vérifier que tu as installé Docker avec succès, lance le image nommé "hello-world".
-```
-$ docker run hello-world
-```
-
-Tu dois voir un message de Docker qui t'accueille.
