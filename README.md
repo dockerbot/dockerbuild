@@ -18,11 +18,16 @@ $ sudo usermod -aG docker $USER
 Maintenant, tu peux utiliser Docker sans devoir taper "sudo".
 
 ---
-### Hello World!
+### Vérification
 
-Pour vérifier que tu as installé Docker avec succès, lance le image nommé "hello-world".
+Pour vérifier que tu as installé Docker avec succès, vois la version de Docker.
 ```
-$ docker run hello-world
+$ docker -v
+```
+
+Si tu veux, tu peux lancer l'image nommé "hello-world" aussi.
+```
+docker run hello-world
 ```
 
 Tu dois voir un message de Docker qui t'accueille.
