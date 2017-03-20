@@ -1,8 +1,23 @@
 ## Pour utiliser Wordpress avec Docker
+### Téléchargement
+
+Télécharge ce repository qui a les deux documents:
+
+ * docker-compose.yml
+ * _README.md_
+
+Pour vérifier le téléchargement, tape:
+```
+$ cd dockerbuild-wordpress
+$ ls
+```
+
+Tu dois voir le deux documents listé ci-dessus.
+
 ---
 ### Docker Compose
 
-Installe ```docker-compose``` sur ton directory.
+Installe ```docker-compose``` dans le directory.
 
 ```
 $ sudo apt install docker-compose
@@ -11,7 +26,15 @@ $ sudo apt install docker-compose
 Vérifie que ```docker-compose``` est dans sa version la plus récente.
 
 ```
-$ sudo apt-get upgrade docker-engine
+$ sudo -i
+```
+
+```
+#curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+#chmod +x /usr/local/bin/docker-compose
+
+#exit
 ```
 
 Télécharge le ```docker-compose``` document du projet:
