@@ -1,7 +1,7 @@
 ## Pour crée une page web dans Docker avec Apache et mySQL
 ### Téléchargement
 
-Télécharge le contenu du projet avec les trois documents:
+Télécharge ce repository qui a les trois documents:
 
  * _apache-config.conf_	
  * _Dockerfile_
@@ -9,7 +9,7 @@ Télécharge le contenu du projet avec les trois documents:
 
 Pour vérifier le téléchargement, tape:
 ```
-$ cd apachebuild
+$ cd dockerbuild-apache-mysql
 $ ls
 ```
 
@@ -24,7 +24,7 @@ $ mkdir www
 $ cd www
 ```
 
-Avec "nano", crée un document nommé "index.php".
+Avec 'nano', crée un document nommé "index.php".
 ```
 $ nano index.php
 ```
