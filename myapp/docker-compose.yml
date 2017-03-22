@@ -23,6 +23,6 @@ services:
       - db
     environment:
       DB_USER: root
-      DB_NAME: noteapp
+      DB_NAME: myapp
       DB_PASSWORD: password
       DB_HOST: db
