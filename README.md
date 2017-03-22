@@ -11,7 +11,7 @@ $ ls
 ```
 
 Tu vas voir:
- * _**www**_
+ * _**mypath**_
  * _README.md_
 
 Aussi, va à l'intérieur du dossier **myapp**.
