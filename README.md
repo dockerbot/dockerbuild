@@ -18,6 +18,7 @@ Tu dois avoir la permission pour accéder à Docker.
 ```
 $ sudo usermod -aG docker $USER
 ```
+Après tu as exécuté cette commande, redémarres ton ordinateur.
 
 Maintenant, tu peux utiliser Docker sans devoir taper "sudo".
 
