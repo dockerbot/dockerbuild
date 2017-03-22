@@ -2,11 +2,10 @@
 
 ### Téléchargement
 
-Télécharge ce repository sur Github.
+Télécharge ce dépôt sur Github.
 
-Pour vérifier le téléchargement, tape:
+Pour vérifie le téléchargement, tape:
 ```
-$ cd dockerbuild-ruby-rails
 $ ls
 ```
 
@@ -19,14 +18,14 @@ Aussi, va à l'intérieur du dossier **myapp**.
 $ cd myapp
 ```
 
-Ce dossier est l'endroit où tu vas crée ton application. Si tu crées un autre application à l'avenir, tu devras le faire dans un dossier séparé dans **dockerbuild-ruby-rails**.
+Ce dossier est l'endroit où tu vas créer ton application. Si tu créées un autre application à l'avenir, tu devras le faire dans un dossier séparé dans le dossier parent.
 
 Ici, il doit y avoir trois fichiers:
  * _Dockerfile_
  * _Gemfile_
  * _docker-compose.yml_
 
-Aussi, crée un ```Gemfile.lock``` vide.
+Aussi, créé un ```Gemfile.lock``` vide.
 ```
 $ touch Gemfile.lock
 ```
@@ -36,21 +35,21 @@ Ces quatre documents contribueront chacun à rendre Rails fonctionnel.
 ---
 ### Construction
 
-D'abord, lance le ```docker-compose``` fichier.
+D'abord, lance le fichier ```docker-compose.yml``` .
 ```
 $ docker-compose run app rails new . --force --database=mysql --skip-bundle
 ```
 
 Beaucoup de fichiers seront créés, mais tu ne peux pas les accéder.
 
-(Si tu ouvres le Gemfile, tu peux voir que le lancement de ```docker-compose``` a le changé aussi.)
+(Si tu ouvres le fichier Gemfile, tu peux voir que le lancement de ```docker-compose``` l'a changé aussi.)
 
 Pour obtenir l'autorisation de modifier ces fichiers, tape:
 ```
 $ sudo chown -R $USER:$USER .
 ```
 
-Maintenant, tu peux edité le fichier nommé ```config/database.yml```.
+Maintenant, tu peux editer le fichier nommé ```config/database.yml```.
 
 À l'intérieur de ce document, remplace tous le texte avec le code suivant:
 ```
@@ -91,7 +90,7 @@ Recherche "localhost:3001" sur un navigateur pour voir la page web de Rails.
 
 Maintenant, tu peux crée un application avec Rails.
 
-Bien que tu utiliseras les commands de Rails, tu devras commencer ses commands avec ```docker-compose run --rm app```. Par example, si tu voulais faire un command du migration (```$ rake db:migrate```), tu devras taper:
+Bien que tu utiliseras les commands de Rails, tu devras commencer ses commands avec ```docker-compose run --rm app```. Par example, si tu voulais faire un command de migration (```$ rake db:migrate```), tu devras taper:
 ```
 $ docker-compose run --rm app rake db:migrate
 ```
