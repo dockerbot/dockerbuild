@@ -50,7 +50,7 @@ Pour obtenir l'autorisation de modifier ces fichiers, tape:
 $ sudo chown -R $USER:$USER .
 ```
 
-Maintenant, tu peux edité le fichier nommé ```database.yml```.
+Maintenant, tu peux edité le fichier nommé ```config/database.yml```.
 
 À l'intérieur de ce document, remplace tous le texte avec le code suivant:
 ```
