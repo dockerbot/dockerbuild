@@ -29,9 +29,13 @@ Pour vérifier que tu as installé Docker avec succès, vois la version de Docke
 $ docker -v
 ```
 
-Si tu veux, tu peux lancer l'image nommé "hello-world" aussi.
+Si tu veux, tu peux lancer l'image nommée "hello-world" aussi.
 ```
 docker run hello-world
 ```
 
 Tu dois voir un message de Docker qui t'accueille.
+
+``` 
+TODO : Lors d'un test de validation, les droits n'étaient pas correctement transmis. Un sudo était nécessaire pour executer hello-world. A vérifier.
+```
