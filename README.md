@@ -1,9 +1,9 @@
-## Pour utiliser Wordpress avec Docker
+## Pour utiliser WordPress avec Docker
 ### Téléchargement
 
 Télécharge ce repository qui a les deux documents:
 
- * docker-compose.yml
+ * _docker-compose.yml_
  * _README.md_
 
 Pour vérifier le téléchargement, tape:
@@ -12,15 +12,12 @@ $ cd dockerbuild-wordpress
 $ ls
 ```
 
-Tu dois voir le deux documents listé ci-dessus.
+Tu dois voir les deux documents listé ci-dessus.
+
+Si nécessaire, tu peux l'éditer.
 
 ---
-### Wordpress et Docker Compose
-
-Tire l'image de WordPress.
-```
-docker pull wordpress
-```
+### Docker Compose
 
 Installe ```docker-compose``` dans le directory.
 
@@ -42,20 +39,10 @@ $ sudo -i
 #exit
 ```
 
-Télécharge le ```docker-compose``` document du projet:
-
- * _docker-compose.yml_
-
-Si nécessaire, tu peux éditer ce document avec 'nano'.
-
-```
-$ nano docker-compose.yml
-```
-
 ---
 ### Lancement
 
-Cree et lance l'image de WordPress en utilisant ce code:
+Crée et lance l'image de WordPress en utilisant ce code:
 
 ```
 $ docker run --name wordpressdb -e password=password -e wordpress=wordpress -d mysql:latest
@@ -66,5 +53,12 @@ Finalment, lance le ```docker-compose``` fichier.
 ```
 $ docker-compose up -d
 ```
+
+Recherche "localport:8080" sur un navigateur pour voir la page de connexion de WordPress.
+
+(Tu peux changer le nombre du port dans le ```docker-compose``` fichier.)
+
+Maintenant, tu peux créer un compte pour WordPress et dessiner ta page web.
+
 ---
 
