@@ -1,42 +1,70 @@
-## Pour obtenir Docker sur un ordinateur avec Ubuntu
----
-### Installation
+## Pour créer un page web utilisant Apache et mySQL sur Docker
 
-Pour installer Docker, tape le code suivant:
+### Téléchargement
+
+Télécharge ce dépot.
+
+Pour vérifier le téléchargement, tape:
 ```
-$ sudo apt-get -y install apt-transport-https ca-certificates curl
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-$ sudo apt-get update
-$ sudo apt-get install docker-ce
+$ ls
 ```
 
----
-### La permission
+Tu dois voir:
+ * _Dockerfile_
+ * _**phpcode**_
 
-Tu dois avoir la permission pour accéder à Docker.
-```
-$ sudo usermod -aG docker $USER
-```
-Après tu as exécuté cette commande, redémarres ton ordinateur.
-
-Maintenant, tu peux utiliser Docker sans devoir taper "sudo".
+Pour faire ce projet, tu dois créer deux conteneurs. L'un va utiliser l'image d'Apache pour construire le page web avec PHP. L'autre va utiliser l'image de mySQL, et va stocker les données produire par le première conteneur. Les deux va être séparé, mais lié.
 
 ---
-### Vérification
+### mySQL
 
-Pour vérifier que tu as installé Docker avec succès, vois la version de Docker.
+Commence avec le conteneur de mySQL. Premièrement, tire son image.
 ```
-$ docker -v
-```
-
-Si tu veux, tu peux lancer l'image nommée "hello-world" aussi.
-```
-docker run hello-world
+$ docker pull mysql 
 ```
 
-Tu dois voir un message de Docker qui t'accueille.
-
-``` 
-TODO : Lors d'un test de validation, les droits n'étaient pas correctement transmis. Un sudo était nécessaire pour executer hello-world. A vérifier.
+Construis et lance le conteneur.
 ```
+$ docker run -p 3900:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
+```
+
+---
+### Le code PHP
+
+Va dans le dossier **phpcode**.
+```
+$ cd phpcode
+```
+
+Crée ou importe tes fichiers de PHP ici.
+
+---
+### Apache
+
+Maintenant, construis le conteneur d'Apache.
+```
+$ docker build -t httpd:latest .
+```
+
+Lie le conteneur d'Apache avec le conteneur de mySQL.
+```
+$ docker run -d -p NOMBRE\_DU\_PORT:80 --name apache --link mysql:mysql -v $PATH:/var/www/html httpd:latest
+```
+
+Le "$PATH" est le location d'un fichier ou dossier. Dans ce cas, tape le path du dossier **phpcode**, l'endroit de tes documents de PHP. 
+
+Pour vérifier le lien, tape:
+```
+$ docker inspect -f "{{ .HostConfig.Links }}" apache
+```
+
+---
+### Ta page web
+
+Ta page web crée avec Apache, PHP, mySQL est complet.
+
+Voie ton projet (ou tes projets) en recherchant "localhost:NOMBRE\_DU\_PORT" sur une navigateur.
+
+Tu peux ajouter les fichiers de PHP dans **phpcode** à tout moment. Juste recharge la page web pour les voir.
+
+---
